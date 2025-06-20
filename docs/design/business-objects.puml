@@ -1,0 +1,72 @@
+@startuml
+skinparam class {
+    BackgroundColor #FDF6E3
+    BorderColor black
+}
+
+package "Користувачі" {
+  class Користувач {
+    +ID: int
+    +ПІБ: String
+    +email: String
+    +статус: String
+  }
+
+  class Роль {
+    +ID: int
+    +назва: String
+  }
+
+  class Аутентифікація {
+    +логін: String
+    +пароль: String
+    +дата_входу: DateTime
+  }
+
+  Користувач --> Роль
+  Аутентифікація --> Користувач
+}
+
+package "Опитування" {
+  class Опитування {
+    +ID: int
+    +назва: String
+    +дата_створення: Date
+    +статус: String
+  }
+
+  class Питання {
+    +ID: int
+    +текст: String
+    +тип: String
+  }
+
+  class Варіант {
+    +ID: int
+    +текст: String
+    +порядок: int
+  }
+
+  Опитування *-- Питання
+  Питання *-- Варіант
+}
+
+package "Результати" {
+  class Відповідь {
+    +ID: int
+    +значення: String
+  }
+
+  class Результат {
+    +ID: int
+    +дата: Date
+    +оцінка: int
+    +коментар: String
+  }
+
+  Користувач --> Відповідь
+  Відповідь --> Питання
+  Користувач --> Результат
+  Результат --> Опитування
+}
+@enduml
