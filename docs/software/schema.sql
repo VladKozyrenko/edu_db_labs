@@ -99,3 +99,10 @@ CREATE TABLE IF NOT EXISTS Association (
         ON DELETE NO ACTION
         ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
+
+-- Таблиця products
+CREATE TABLE products (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    price DOUBLE
+);
