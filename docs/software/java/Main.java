@@ -1,20 +1,24 @@
+import dao.ProductDAO;
 import dao.UserDAO;
-import model.User;
-
 import java.util.List;
+import model.Product;
+import model.User;
 
 public class Main {
     public static void main(String[] args) {
         UserDAO userDAO = new UserDAO();
+        ProductDAO productDAO = new ProductDAO();
 
-        // Додати нового користувача
-        User user = new User(0, "Ivan Petrenko", "ivan@example.com");
-        userDAO.insertUser(user);
-
-        // Вивести всіх користувачів
+        System.out.println("Users:");
         List<User> users = userDAO.getAllUsers();
         for (User u : users) {
-            System.out.println(u.getId() + " | " + u.getName() + " | " + u.getEmail());
+            System.out.println(u.getId() + ": " + u.getName());
+        }
+
+        System.out.println("\nProducts:");
+        List<Product> products = productDAO.getAllProducts();
+        for (Product p : products) {
+            System.out.println(p.getId() + ": " + p.getName() + " - " + p.getPrice());
         }
     }
 }
