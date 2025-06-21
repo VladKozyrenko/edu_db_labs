@@ -3,13 +3,13 @@ home: true
 actionText: Розпочати →
 actionLink: /intro/
 
-footer: "ECL 2.0 Licensed | Copyright © [YYYY] [Your Name]"
+footer: "ECL 2.0 Licensed | Copyright © [2025] [Vladyslav Kozyrenko]"
 ---
 
 
 **Виконав:** 
 
-*студент 2-го курсу, групи ІО-33*<span padding-right:5em></span> **[Владислав Козиренко] [Посилання email, tg, fb]**
+*студент 2-го курсу, групи ІО-33*<span padding-right:5em></span> **[Владислав Козиренко] [kozyrenko.vladyslav@gmail.com, @KozYrUA]**
 
 
 **Керівник**
