@@ -1,35 +1,31 @@
 package dao;
 
+import model.User;
+import utils.DBConnection;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import model.Product;
-import utils.DBConnection;
 
-public class ProductDAO {
+public class UserDAO {
 
-    public List<Product> getAllProducts() {
-        List<Product> products = new ArrayList<>();
-        String query = "SELECT * FROM products";
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+        String query = "SELECT * FROM users";
 
         try (Connection conn = DBConnection.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
 
             while (rs.next()) {
-                products.add(new Product(
-                    rs.getInt("id"),
-                    rs.getString("name"),
-                    rs.getDouble("price")
-                ));
+                users.add(new User(rs.getInt("id"), rs.getString("name")));
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return products;
+        return users;
     }
 }
-
 
